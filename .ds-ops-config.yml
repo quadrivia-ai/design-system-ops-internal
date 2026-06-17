@@ -1,0 +1,82 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .ds-ops-config.yml — configuration for the Design System Ops skill pack
+#
+# EVERYTHING HERE IS OPTIONAL. Every skill works with zero config by scanning the
+# current repo with sensible, stack-tuned defaults. Use this file to tune severity,
+# point skills at your token files, or wire optional integrations.
+#
+# ┌───────────────────────────────────────────────────────────────────────────┐
+# │ SECRETS NEVER LIVE IN THIS FILE.                                            │
+# │ Store only the NAMES of environment variables (e.g. "FIGMA_ACCESS_TOKEN"). │
+# │ The actual secret stays in your environment or a secret manager.           │
+# │ Any integration token should be least-privilege and read-only where the    │
+# │ provider supports it.                                                       │
+# └───────────────────────────────────────────────────────────────────────────┘
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── What to scan ─────────────────────────────────────────────────────────────
+target_repo: "."                       # repo root the skills scan; defaults to CWD
+source_globs:
+  - "src/**/*.{ts,tsx,css}"
+ignore_globs:
+  - "**/node_modules/**"
+  - "**/dist/**"
+  - "**/*.test.{ts,tsx}"
+
+# ── Stack hints (tune findings to our conventions) ───────────────────────────
+# Defaults below reflect quadrivia-ai/frontend. Override only if they drift.
+stack:
+  styling: "tailwind"                   # tailwind | css-modules | emotion | style-dictionary
+  token_format: "css-custom-properties-hsl"   # bare HSL triplets, e.g. `--accent: 245 100% 70%`
+  token_files:
+    - "src/index.css"
+    - "src/design-system/care-journeys/tokens.css"
+  theme_classes:                        # how themes are switched at the root
+    - "light"
+    - "dark"
+    - "colorblind"
+  component_roots:
+    - "src/components/ui"               # shadcn/ui primitives
+    - "src/components/atoms"
+    - "src/components/molecules"
+    - "src/components/organisms"
+  ui_library: "shadcn"                  # informs duplication / drift heuristics
+  test:
+    runner: "vitest"
+    convention: "co-located"            # *.test.tsx beside source
+  lint:
+    # Existing enforcement the token/compliance skills DEFER to (never duplicate).
+    token_rules:
+      - "no-hardcoded-tailwind-colors"
+      - "no-raw-tailwind-typography"
+
+# ── Maturity (calibrates every recommendation) ───────────────────────────────
+# 1 ad-hoc · 2 emerging · 3 structured · 4 managed · 5 optimised.
+# Leave null to let skills self-assess from what they scan.
+maturity_level: null
+
+# ── Severity & accepted findings ─────────────────────────────────────────────
+severity_overrides: {}                  # e.g. { "hardcoded-color": "low" }
+accepted_findings: []                   # fingerprints the team reviewed & accepted;
+                                        # skills skip these on future runs. e.g.:
+                                        # - "token-audit:primitive-in-code:src/x.tsx:--blue-500"
+
+# ── Integrations (ALL optional; env-var NAMES only, never values) ────────────
+integrations:
+  figma:
+    file_key: ""                        # Figma file key (identifier, not a secret)
+    access_token_env: "FIGMA_ACCESS_TOKEN"
+    # Alternatively, the ClaudeTalkToFigma MCP can supply variables when connected.
+  github:
+    repo: "quadrivia-ai/frontend"
+    token_env: "GITHUB_TOKEN"
+  chromatic:
+    project_token_env: "CHROMATIC_PROJECT_TOKEN"
+  docs_platform:
+    base_url: ""
+    api_key_env: "DOCS_API_KEY"
+
+# ── Output ───────────────────────────────────────────────────────────────────
+output:
+  report_dir: ".ds-ops/reports"         # where human-readable reports are written
+  trend_dir: ".ds-ops/history"          # where session-memory writes run snapshots for trend/compare

@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local run artefacts (skills write these into the TARGET repo, not here, but
+# ignore them in case the pack is ever run from its own root)
+.ds-ops/

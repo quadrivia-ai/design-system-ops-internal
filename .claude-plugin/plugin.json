@@ -1,0 +1,23 @@
+{
+  "name": "design-system-ops-internal",
+  "version": "0.1.0",
+  "description": "Staff-level design-system operations for the Quadrivia frontend — audit, govern, document, validate, and communicate. Evidence-based findings, label-based (never numeric) output, instructions-only with no code execution or data egress.",
+  "author": {
+    "name": "Quadrivia AI"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/quadrivia-ai/design-system-ops-internal",
+  "repository": "https://github.com/quadrivia-ai/design-system-ops-internal",
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "audit",
+    "governance",
+    "accessibility",
+    "documentation",
+    "react",
+    "typescript",
+    "tailwind",
+    "shadcn"
+  ]
+}
