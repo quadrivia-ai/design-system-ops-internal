@@ -17,12 +17,12 @@ description: >
   must be active.
 metadata:
   author: David Vegas Garcia
-  version: "2.7"
+  version: "2.9"
 ---
 
 # Quadrivia Design System
 
-> Authored and maintained by **David Vegas Garcia** · v2.7 · 2026
+> Authored and maintained by **David Vegas Garcia** · v2.9 · 2026
 
 The design system for **Q**, the product, by **Quadrivia**, the company. The aesthetic is **bold, bright, and generous**: four co-equal brand colors carrying equal weight, fully rounded geometry with no hard right angles, a single confident typeface (Poppins), gradients as a signature device, and a lot of breathing room.
 
@@ -35,7 +35,7 @@ Regenerate after any token change: `node scripts/build-tokens.mjs` (or `python3 
 
 A live visual reference is `showcase.html`. Open it in a browser to see every token and component rendered.
 
-> **About this document's own formatting:** it is a developer reference, so it uses ordinary Markdown lists and emphasis for legibility. Those are documentation conventions. The brand rules below (no bullets, never italics, etc.) govern **product and brand surfaces**, not this file.
+> **About this document's own formatting:** it is a developer reference, so it uses ordinary Markdown lists and emphasis for legibility. Those are documentation conventions. The brand rules below (no bullets, no em dashes, never italics, etc.) govern **product and brand surfaces**, not this developer reference.
 
 ---
 
@@ -556,9 +556,15 @@ The tokens are the language and the [component gallery](components/index.html) t
 
 Full rules in [references/voice-and-content.md](references/voice-and-content.md). The essentials:
 
+- **Voice:** direct, specific, grounded in clinical reality. It doesn't explain itself, hedge, or celebrate its own tech. Test: if a line could run in any healthcare-AI company's marketing, it isn't Q copy.
+- **Empathy principle:** never imply AI outperforms clinicians. Q absorbs volume so clinicians focus where human judgment matters most.
+- **Hard copy rules** (UI, microcopy, tooltips, errors too): **no em dashes anywhere** (use a period + new sentence, parentheses, or a restructure) · **no italics** (bold for emphasis) · **no first-person** ("we" / "our") · **no centered body text**.
+- **Rhythm:** short declarative over descriptive; lists repeat in threes with white space; never collapse the three.
+- **People are patients, not "users"** in patient-facing / clinical copy.
+- **CTAs & links:** natural, low-pressure, no performative asks; link text describes its destination.
 - **Naming:** Quadrivia = company, Q = product. Never interchangeable (except the About page). **Never "the Q".** Always capitalize Q standalone.
 - **Taglines:** "Q. Helping Healthcare Help Humans." (hero) · "You direct. Q delivers." (differentiator).
-- **Word swaps:** journeys not tasks · full journey / care continuum not single-task · orchestrate / run / own not automate · partner / managed service not tool / solution.
+- **Word swaps:** journeys not tasks · full journey / care continuum not single-task · orchestrate / run / own not automate · partner / managed service not tool / solution · patients not users.
 
 ---
 
@@ -578,6 +584,7 @@ Full rules in [references/voice-and-content.md](references/voice-and-content.md)
 | Data table radius | **16px** (`--radius-lg`) — tighter than cards |
 | List items | `.q-separator` gradient rule — **no bullets** |
 | Emphasis | **weight** (SemiBold/Bold) — **never italics** |
+| Copy voice | direct, specific, clinical · **no em dashes** anywhere · no first-person · patients not "users" |
 | Chart series 1 (lead) | `chart-1` Teal `#22C7C6` |
 | Below/above baseline | `--color-div-teal-pink-*` |
 | On-target vs miss | `--color-div-bad-good-*` |
