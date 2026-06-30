@@ -17,12 +17,12 @@ description: >
   must be active.
 metadata:
   author: David Vegas Garcia
-  version: "2.10"
+  version: "2.11"
 ---
 
 # Quadrivia Design System
 
-> Authored and maintained by **David Vegas Garcia** · v2.10 · 2026
+> Authored and maintained by **David Vegas Garcia** · v2.11 · 2026
 
 The design system for **Q**, the product, by **Quadrivia**, the company. The aesthetic is **bold, bright, and generous**: four co-equal brand colors carrying equal weight, fully rounded geometry with no hard right angles, a single confident typeface (Poppins), gradients as a signature device, and a lot of breathing room.
 
